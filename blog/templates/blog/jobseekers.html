@@ -1,0 +1,67 @@
+{% extends "blog/base.html" %}
+{% block title %}
+
+Welcome
+
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="{{ user.profile.image.url }}" alt="" class="image-rounded img-responsive"/>
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4> {{ user.username }}</h4>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope">{{ user.email }}</i> <br/>                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <section>
+        <div class="container"> 
+            <h2 class="text-center my-3">Job Seekers</h2>
+        <form action="/jobseekers" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="education">Education</label>
+                <input type="text" class="form-control" id="education" name="education" placeholder="Education">
+            </div>
+            <div class="form-group">
+                <label for="skills">Skills</label>
+                <input type="text" class="form-control" id="skills" name="skills" placeholder="Skills">
+            </div>
+            <div class="form-group">
+                <label for="projectname">Project Name</label>
+                <input type="text" class="form-control" id="projectname" rows="3" name="projectname" placeholder="Project Name">
+            </div>
+            <div class="form-group">
+                <label for="projectdescription">Project Description</label>
+                <input type="text" class="form-control" id="projectdescription" rows="3" name="projectdescription" placeholder="Project Description">
+            </div>
+            <div class="form-group">
+                <label for="accomplishments">Accomplishments</label>
+                <input type="text" class="form-control" id="accomplishments" rows="3" name="accomplishments" placeholder="Accomplishments">
+            </div>  
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="phone" class="form-control" id="phone" name="phone" placeholder="Contact Number">
+            </div> 
+            <div class="form-group">
+                <label for="emailaddress">Email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address">
+            </div>         
+           <p>
+                <button type="submit"> Submit</button>
+            </p>
+        </div>
+        </form>
+    </div>
+    </section>
+{% endblock %}

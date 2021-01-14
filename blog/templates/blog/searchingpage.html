@@ -1,0 +1,65 @@
+{% extends "blog/base.html" %}
+{% block title %}
+
+Welcome
+
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="{{ user.profile.image.url }}" alt="" class="image-rounded img-responsive"/>
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4> {{ user.username }}</h4>
+                        <p>
+                            <i class="glyphicon glyphicon-envelope">{{ user.email }}</i> <br/>                        
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="container"> 
+        <h2 class="text-center my-3">Searching Page</h2>
+        {% for job in comp %}
+        <div class="form-group">
+            <i>Job Position: {{ job.jobposition }}</i>
+        </div>
+        <div class="form-group">
+            <i>Level: {{ job.level }}</i>
+        </div>
+        <div class="form-group">
+            <i>Job description: {{ job.jobdescription }}</i>
+        </div>
+        <div class="form-group">
+            <i>Required Skills: {{ job.requiredskills }}</i>
+        </div>
+        <div class="form-group">
+            <i>Contact Number: {{ job.phonenumber }}</i>
+        </div>
+        <div class="form-group">
+            <i>Email Address: {{ job.emailaddress }}</i>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</section>
+
+<section>
+        <form action="" method="post">
+            <p>
+                Job Position
+                <input type="text" name="url">
+            </p>
+            <p>
+                <button type="submit"> Submit</button>
+            </p>
+        </form>
+    </section>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "blog/base.html" %}
+{% block title %}
+
+Welcome
+
+{% endblock %}
+{% block content %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Employement Help During Covid 19 </h1>
+      </div>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+          <h2>Company</h2>
+          <p>Post Your Vacancies Here </p>
+          <p><a class="btn btn-default" href="{% url 'company' %}" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Job Seekers</h2>
+          <p>Post Your Skills here </p>
+          <p><a class="btn btn-default" href="{% url 'jobseekers' %}" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Job Search</h2>
+          <p>Search For Your Preffered Job</p>
+          <p><a class="btn btn-default" href="{% url 'searchingpage' %}" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+      {% else %}
+      <div class="container">
+       <h4> Login to view the page</h4> 
+        <a class="btn btn-success" href="{% url 'login' %}" role="button">Login</a>
+      <h4> if you are not yet registered, register Here</h4>
+      <a class="btn btn-success" href="{% url 'register' %}" role="button">Register</a>
+      </div>
+      {% endif %}
+      <hr>
+{% endblock %}
